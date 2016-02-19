@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title></title>
+
+        <script>
+            var Contact = Backbone.Model.extend({
+
+            });
+
+            var Contacts = Backbone.Collection.extend({
+                model: Contact,
+                url: 'http://localhost:8080/contacts/'
+            });
+
+            var AppView = Backbone.View.extend({
+                el: $('#content')
+            });
+        </script>
+    </head>
+
+    <body>
+        <div id="content"></div>
+
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/underscore/underscore-min.js"></script>
+        <script src="bower_components/backbone/backbone-min.js"></script>
+    </body>
+</html>
