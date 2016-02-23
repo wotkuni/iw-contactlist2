@@ -1,0 +1,17 @@
+{
+  "name": "iw-contactlist-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for contact list",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "bower": "^1.7.7",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^2.3.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

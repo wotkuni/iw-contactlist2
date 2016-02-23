@@ -1,6 +1,14 @@
 <html>
     <head>
         <title></title>
+    </head>
+
+    <body>
+        <div id="content"></div>
+
+        <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="/bower_components/underscore/underscore-min.js"></script>
+        <script src="/bower_components/backbone/backbone-min.js"></script>
 
         <script>
             var Contact = Backbone.Model.extend({
@@ -12,17 +20,35 @@
                 url: 'http://localhost:8080/contacts/'
             });
 
-            var AppView = Backbone.View.extend({
-                el: $('#content')
+            var ContactsView = Backbone.View.extend({
+                initialize: function() {
+
+                },
+                render: function() {
+                    debugger;
+                }
             });
+
+            var AppView = Backbone.View.extend({
+                el: $('#content'),
+                initialize: function() {
+                    this.contacts = new Contacts();
+
+                },
+                render: function() {
+                    var that = this;
+                    this.contacts.fetch({
+                        success: function(collection, resp, options) {
+                            that.contactsView = new ContactsView({collection: collection});
+                            that.contactsView.render();
+                        }
+                    });
+
+                }
+            });
+
+            var app = new AppView();
+            app.render();
         </script>
-    </head>
-
-    <body>
-        <div id="content"></div>
-
-        <script src="bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="bower_components/underscore/underscore-min.js"></script>
-        <script src="bower_components/backbone/backbone-min.js"></script>
     </body>
 </html>
